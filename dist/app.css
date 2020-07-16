@@ -1,0 +1,62 @@
+/* ________ RESET ________ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ________ REGOLE GENERALI ________ */
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #1e313e;
+}
+
+.container {
+  width: 70%;
+  margin: auto;
+}
+
+header {
+  background-color: #2e3d48;
+}
+
+header .container {
+  height: 50px;
+}
+
+header img {
+  padding: 5px;
+  height: 100%;
+}
+
+main .container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+main .container .card {
+  background-color: #2e3d48;
+  width: 200px;
+  margin: 20px;
+  padding: 20px 20px 40px;
+  text-align: center;
+}
+
+main .container .card img {
+  width: 100%;
+  padding-bottom: 20px;
+}
+
+main .container .card h3 {
+  color: white;
+  padding-bottom: 20px;
+}
+
+main .container .card span {
+  display: block;
+  color: #818181;
+}
+

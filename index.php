@@ -16,7 +16,25 @@
     <!-- HEADER -->
     <header>
       <div class="container">
-        <img src="img/logo.png" alt="Spotify">
+        <div class="logo">
+          <a href="/php-ajax-dischi"><img src="img/logo.png" alt="Spotify"></a>
+        </div>
+
+        <div class="select-author">
+          <form action="/php-ajax-dischi" method="get">
+            <select name="author-select" class="author">
+
+              <option value="Tutti gli autori">Tutti gli autori</option>
+              <?php foreach ($database as $disk) { ?>
+                <option value="<?php echo $disk['author']; ?>"><?php echo $disk['author']; ?></option>
+              <?php } ?>
+
+            </select>
+            <input type="submit" value="Filtra" >
+
+          </form>
+        </div>
+
       </div>
     </header>
 
@@ -24,17 +42,25 @@
     <main>
       <div class="container">
 
-        <?php foreach ($database as $disk) { ?>
-          <!-- DISKS -->
-          <div class="card">
+        <?php if (isset($author) === false) { ?>
+          <?php include __DIR__ . '/partials-php/filter.php'; ?>
+        <?php }; ?>
 
-            <img src="<?php echo $disk['poster']; ?>" alt="Poster">
-            <h3><?php echo $disk['title'] ?></h3>
-            <span><?php echo $disk['author'] ?></span>
-            <span><?php echo $disk['year'] ?></span>
+        <?php if (empty($author) || $author === 'Tutti gli autori') { ?>
+          <?php foreach ($database as $disk) { ?>
 
-          </div>
+            <!-- DISK -->
+            <div class="card">
+
+              <img src="<?php echo $disk['poster']; ?>" alt="Poster">
+              <h3><?php echo $disk['title'] ?></h3>
+              <span><?php echo $disk['author'] ?></span>
+              <span><?php echo $disk['year'] ?></span>
+
+            </div>
+          <?php } ?>
         <?php } ?>
+
 
       </div>
     </main>

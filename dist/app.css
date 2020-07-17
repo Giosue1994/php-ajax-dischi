@@ -25,6 +25,10 @@ img {
   display: block;
 }
 
+font {
+  display: none;
+}
+
 header {
   background-color: #2e3d48;
   height: 50px;

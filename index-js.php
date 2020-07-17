@@ -24,9 +24,8 @@
           <select class="author">
             <option>--</option>
 
+          </select>
         </div>
-
-        </select>
       </div>
     </header>
 

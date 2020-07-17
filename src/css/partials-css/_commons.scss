@@ -21,3 +21,7 @@ body {
 img {
   @include img_reset;
 }
+
+font {
+  display: none;
+}

@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="dist/app.css">
-    <title>PHP AJAX DISKS</title>
+    <title>PHP AJAX DISKS: codice con js</title>
   </head>
   <body>
 
@@ -24,20 +24,21 @@
     <main>
       <div class="container">
 
-        <?php foreach ($database as $disk) { ?>
-          <!-- DISKS -->
-          <div class="card">
-
-            <img src="<?php echo $disk['poster']; ?>" alt="Poster">
-            <h3><?php echo $disk['title'] ?></h3>
-            <span><?php echo $disk['author'] ?></span>
-            <span><?php echo $disk['year'] ?></span>
-
-          </div>
-        <?php } ?>
-
       </div>
     </main>
 
+    <!-- TEMPLATE -->
+    <script id="disk-template" type="text/x-handlebars-template">
+      <div class="card">
+        <img src="{{ poster }}" alt="Poster">
+        <h3>{{ title }}</h3>
+        <span>{{ author }}</span>
+        <span>{{ year }}</span>
+      </div>
+    </script>
+
+    <script src="dist/app.js">
+
+    </script>
   </body>
 </html>

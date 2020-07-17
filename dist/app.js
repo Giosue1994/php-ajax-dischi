@@ -16103,18 +16103,53 @@ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"
 var Handlebars = __webpack_require__(/*! handlebars */ "./node_modules/handlebars/dist/cjs/handlebars.js");
 
 $(document).ready(function () {
+  // al cambio della select mostro a schermo l'autore selezionato
+  $('select').change(function () {
+    var author = $(this).val();
+    diskAuthor(author);
+  });
   $.ajax({
     url: 'http://localhost:8888/php-ajax-dischi/server.php',
     method: 'GET',
     success: function success(data) {
       printDisk(data);
-      printAuthor(data);
+      printAuthors(data);
     },
     error: function error() {
       alert('Error');
     }
   });
-});
+}); //////////////// FUNZIONI ////////////////////
+// funzione che ricerca l'autore del disco
+// l'argomento da passare è l'autore
+
+function diskAuthor(author) {
+  $.ajax({
+    url: 'http://localhost:8888/php-ajax-dischi/server.php',
+    method: 'GET',
+    success: function success(data) {
+      $('main .container').html('');
+      var source = $("#disk-template").html();
+      var template = Handlebars.compile(source);
+
+      for (var i = 0; i < data.length; i++) {
+        var disk = data[i]; // se l'argomento passato è uguale all'autore del disco
+        // appendo solo quel disco
+
+        if (author === disk.author) {
+          var html = template(disk);
+          $('main .container').append(html);
+        }
+      }
+    },
+    error: function error() {
+      alert('Error');
+    }
+  });
+}
+
+; // funzione che stampa i dischi
+// l'argomento da passare è l'array dei dischi
 
 function printDisk(array) {
   var source = $("#disk-template").html();
@@ -16127,7 +16162,10 @@ function printDisk(array) {
   }
 }
 
-function printAuthor(array) {
+; // funzione che stampa il nome dell'autore
+// l'argomento da passare è l'array dei dischi
+
+function printAuthors(array) {
   var source = $("#author-template").html();
   var template = Handlebars.compile(source);
 
@@ -16136,11 +16174,12 @@ function printAuthor(array) {
     var context = {
       author: element.author
     };
-    console.log(context);
     var html = template(element);
     $('select').append(html);
   }
 }
+
+;
 
 /***/ }),
 

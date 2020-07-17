@@ -23,21 +23,13 @@ $(document).ready(function() {
 
 function printDisk(array) {
 
-  var source = $("disk-template").html();
+  var source = $("#disk-template").html();
   var template = Handlebars.compile(source);
 
   for (var i = 0; i < array.length; i++) {
     var element = array[i];
-    console.log(element);
 
-    var context = {
-      poster: element.poster,
-      title: element.title,
-      author: element.author,
-      year: element.year,
-     };
-
-    var html = template(context);
+    var html = template(element);
     $('.card').append(html);
 
   }

@@ -9,7 +9,7 @@ $(document).ready(function() {
       method: 'GET',
 
       success: function(data) {
-        printDisk(data)
+        printDisk(data);
       },
 
       error: function() {
@@ -30,7 +30,7 @@ function printDisk(array) {
     var element = array[i];
 
     var html = template(element);
-    $('.card').append(html);
 
+    $('main .container').append(html);
   }
 }

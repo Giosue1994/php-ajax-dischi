@@ -1,0 +1,23 @@
+/* ________ RESET ________ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ________ REGOLE GENERALI ________ */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: $primary_color;
+  color: white;
+}
+
+.container {
+  display: flex;
+  width: 800px;
+  margin: auto;
+}
+
+img {
+  @include img_reset;
+}

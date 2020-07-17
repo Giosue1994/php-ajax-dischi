@@ -16,7 +16,17 @@
     <!-- HEADER -->
     <header>
       <div class="container">
-        <img src="img/logo.png" alt="Spotify">
+        <div class="logo">
+          <img src="img/logo.png" alt="Spotify">
+        </div>
+        <div class="select-author">
+          <label>Seleziona un autore</label>
+          <select class="author">
+            <option>--</option>
+
+        </div>
+
+        </select>
       </div>
     </header>
 
@@ -27,15 +37,8 @@
       </div>
     </main>
 
-    <!-- TEMPLATE -->
-    <script id="disk-template" type="text/x-handlebars-template">
-      <div class="card">
-        <img src="{{{ poster }}}" alt="Poster">
-        <h3>{{ title }}</h3>
-        <span>{{ author }}</span>
-        <span>{{ year }}</span>
-      </div>
-    </script>
+    <?php include __DIR__ . '/partials-php/template/template-author.php'; ?>
+    <?php include __DIR__ . '/partials-php/template/template-disk.php'; ?>
 
     <script src="dist/app.js">
 

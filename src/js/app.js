@@ -10,6 +10,7 @@ $(document).ready(function() {
 
       success: function(data) {
         printDisk(data);
+        printAuthor(data)
       },
 
       error: function() {
@@ -20,6 +21,8 @@ $(document).ready(function() {
   );
 
 });
+
+
 
 function printDisk(array) {
 
@@ -32,5 +35,25 @@ function printDisk(array) {
     var html = template(element);
 
     $('main .container').append(html);
+  }
+}
+
+function printAuthor(array) {
+
+  var source = $("#author-template").html();
+  var template = Handlebars.compile(source);
+
+  for (var i = 0; i < array.length; i++) {
+    var element = array[i];
+
+    var context = {
+      author: element.author
+    }
+
+    console.log(context);
+
+    var html = template(element);
+
+    $('select').append(html);
   }
 }

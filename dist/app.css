@@ -11,29 +11,39 @@
 body {
   font-family: "Roboto", sans-serif;
   background-color: #1e313e;
+  color: white;
 }
 
 .container {
+  display: flex;
   width: 800px;
   margin: auto;
 }
 
+img {
+  width: 100%;
+  display: block;
+}
+
 header {
   background-color: #2e3d48;
+  height: 50px;
 }
 
 header .container {
-  height: 50px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .logo {
+  width: 50px;
 }
 
 header img {
   padding: 5px;
-  height: 100%;
-  display: block;
 }
 
 main .container {
-  display: flex;
   justify-content: center;
   flex-wrap: wrap;
   padding: 60px 0;
@@ -47,14 +57,13 @@ main .container .card {
   text-align: center;
 }
 
-main .container .card img {
-  width: 100%;
+main .container .card img,
+main .container .card h3 {
   padding-bottom: 20px;
 }
 
 main .container .card h3 {
   color: white;
-  padding-bottom: 20px;
 }
 
 main .container .card span {

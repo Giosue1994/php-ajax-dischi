@@ -1,0 +1,18 @@
+// HEADER
+header {
+  background-color: $secondary_color;
+  height: 50px;
+
+  .container {
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    width: 50px;
+  }
+
+  img {
+    padding: 5px;
+  }
+}
